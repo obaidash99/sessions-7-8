@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ProductsContext } from '../App';
 
-function Navbar(props) {
+function Navbar() {
 	const value = useContext(ProductsContext);
 
 	return (
@@ -10,5 +10,8 @@ function Navbar(props) {
 		</div>
 	);
 }
+Navbar.Toggle = function () {
+	return <h1>Toggle</h1>;
+};
 
 export default Navbar;

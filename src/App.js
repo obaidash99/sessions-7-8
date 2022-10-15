@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { createContext, useState } from 'react';
 import Navbar from './components/Navbar';
 import ProductsList from './components/ProductsList';
+import Card from './components/Card';
 
 export const ProductsContext = createContext();
 
@@ -17,7 +17,12 @@ function App() {
 		<div className="App">
 			<ProductsContext.Provider value={products}>
 				<Navbar />
+				<Navbar.Toggle />
 				<ProductsList products={products} />
+				{/* <Card>
+					<Card.Title />
+					<Card.Img src="" />
+				</Card> */}
 			</ProductsContext.Provider>
 		</div>
 	);
