@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import { createContext, useState } from 'react';
+import Navbar from './components/Navbar';
+import ProductsList from './components/ProductsList';
+
+export const ProductsContext = createContext();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [products, setProducts] = useState([
+		{ id: 1, title: 'product1' },
+		{ id: 2, title: 'product2' },
+		{ id: 3, title: 'product3' },
+	]);
+
+	return (
+		<div className="App">
+			<ProductsContext.Provider value={products}>
+				<Navbar />
+				<ProductsList products={products} />
+			</ProductsContext.Provider>
+		</div>
+	);
 }
 
 export default App;
